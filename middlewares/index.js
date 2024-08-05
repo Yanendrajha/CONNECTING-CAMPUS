@@ -1,6 +1,6 @@
 isLoggedIn = (req, res, next) => {
     try {
-        if (req.session.id) {
+        if (req.session.user) {
             console.log(req.session)
             next();
         }
@@ -16,7 +16,7 @@ isLoggedIn = (req, res, next) => {
 isOwner = async (req, res, next) => {
     try {
         const post = await postModel.findById(req.params.id)
-        if (post.authorId === req.session.id) {
+        if (post.authorId === req.session.user.id) {
             next();
         }
         else {

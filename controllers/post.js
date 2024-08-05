@@ -49,7 +49,6 @@ const createPost = async (req, res) => {
             comments: []
         })
     
-
         await post.save()
         res.status(201)
         res.send("Post created successfully")

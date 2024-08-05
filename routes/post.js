@@ -14,9 +14,9 @@ Add a comment (loggedin middleware)
 */
 
 // get all post
-router.get('/', (req, res) => {
-    res.redirect("/posts")
-})
+// router.get('/', (req, res) => {
+//     res.redirect("/posts")
+// })
 
 router.get('/posts', middleWares.isLoggedIn ,postController.getPost)
 

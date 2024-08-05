@@ -15,7 +15,7 @@ signupUser = async (req, res) => {
         })
 
         await newUser.save();
-        res.session = {
+        req.session.user = {
             name: newUser.username,
             id: newUser._id
         }
@@ -36,11 +36,10 @@ async function login(req, res) {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (isPasswordValid === true) {
         
-        res.session = {
+        req.session.user = {
             name: user.username,
             id: user._id
         }
-        res.json(res.session);
     }
     else {
         res.status(400)
