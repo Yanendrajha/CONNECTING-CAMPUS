@@ -1,7 +1,9 @@
+const postModel = require('../models/post')
+
 isLoggedIn = (req, res, next) => {
     try {
         if (req.session.user) {
-            console.log(req.session)
+           
             next();
         }
         else {
@@ -16,6 +18,7 @@ isLoggedIn = (req, res, next) => {
 isOwner = async (req, res, next) => {
     try {
         const post = await postModel.findById(req.params.id)
+        console.log(req.session.user)
         if (post.authorId === req.session.user.id) {
             next();
         }

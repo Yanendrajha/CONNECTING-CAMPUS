@@ -27,15 +27,15 @@ router.get('/posts/:id', middleWares.isLoggedIn, postController.getOne)
 router.post('/create', middleWares.isLoggedIn, postController.createPost)
 
 // edit a post
-router.put('/post/:id', middleWares.isOwner, postController.editPost)
+router.put('/posts/:id', middleWares.isOwner, postController.editPost)
 
 // delete a post
-router.delete('/post/:id', middleWares.isOwner, postController.deletePost)
+router.delete('/posts/:id', middleWares.isOwner, postController.deletePost)
 
 // add like 
-router.post('/post/:id/likes', middleWares.isLoggedIn, postController.addLike)
+router.post('/posts/:id/likes', middleWares.isLoggedIn, postController.addLike)
 
 // add comment
-router.post('/post/:id/comment', middleWares.isLoggedIn, postController.addComment)
+router.post('/posts/:id/comment', middleWares.isLoggedIn, postController.addComment)
 
 module.exports = router

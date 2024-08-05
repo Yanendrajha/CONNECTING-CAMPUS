@@ -5,7 +5,7 @@ const session = require('express-session')
 
 signupUser = async (req, res) => {
     try {
-        const { password, username, name, email } = req.body;
+        const {password, username, name, email } = req.body;
         const hash = await bcrypt.hash(password, 12);
         const newUser = new userModel({
             username,
@@ -40,6 +40,7 @@ async function login(req, res) {
             name: user.username,
             id: user._id
         }
+        res.send("logged in successfully")
     }
     else {
         res.status(400)
@@ -53,7 +54,7 @@ async function getAllUsers(req, res){
 }
 
 async function logout(req, res) {
-    delete req.session;
+    delete req.session.user;
     res.send("logged out")
 }
 

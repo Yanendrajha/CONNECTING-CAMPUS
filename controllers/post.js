@@ -43,8 +43,8 @@ const createPost = async (req, res) => {
         const post = new postModel({
             title: req.body.title,
             content: req.body.content,
-            author: req.session.name,
-            authorId: req.session.id,
+            author: req.session.user.name,
+            authorId: req.session.user.id,
             likes: [],
             comments: []
         })
