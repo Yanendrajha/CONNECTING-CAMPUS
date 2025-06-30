@@ -82,5 +82,3 @@ If you have any questions or suggestions, feel free to reach out:
 
 Happy coding!
 ```
-
-Feel free to modify this `README.md` file as needed to better fit the specifics of your project.
